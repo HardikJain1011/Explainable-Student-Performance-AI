@@ -146,6 +146,8 @@ def style_plotly(fig, *, height=None, title=None):
         "plot_bgcolor": "#ffffff",
         "paper_bgcolor": "#ffffff",
         "font": {"family": "Inter, Arial, sans-serif", "size": 13, "color": "#334155"},
+        # Hover tooltip styling
+        "hoverlabel": {"bgcolor": "#ffffff","bordercolor": "#cbd5e1","font": {"family": "Inter, Arial, sans-serif","size": 13,"color": "#0f172a"}},
         "legend": {"font": {"size": 12, "color": "#334155"}},
         "xaxis": {
             "title": {"font": {"size": 13, "color": "#334155"}},
@@ -596,8 +598,24 @@ else:
     st.divider()
     st.markdown("#### Architecture")
     st.code("Student inputs → preprocessing/model → prediction probabilities → SHAP/LIME → actionable recommendations → dashboard + PDF report", language="text")
-    st.markdown("#### Responsible use")
-    st.write("The included dataset is synthetic and generated from a known formula. Counterfactuals demonstrate an XAI engineering technique; they are not causal claims. A real deployment would require representative consented data, external validation, calibration, fairness evaluation, privacy controls and monitoring.")
+    st.markdown("#### Responsible AI & privacy")
+    st.write(
+        "This is an educational and portfolio-oriented prototype. The included dataset "
+        "is synthetic and does not represent real students. Predictions are probabilistic "
+        "and should not be treated as official academic assessments or used as the sole "
+        "basis for consequential educational decisions."
+    )
+    st.write(
+        "SHAP and LIME explain model behavior; they do not establish causal relationships. "
+        "Counterfactual scenarios are model-based what-if simulations, not guaranteed "
+        "interventions or academic advice."
+    )
+    st.write(
+        "The public demo should not be used with personally identifiable or sensitive "
+        "student records. If real student data is introduced in the future, appropriate "
+        "consent, privacy, security, retention, fairness, validation and institutional "
+        "requirements must be addressed."
+    )
     st.markdown("#### Portfolio positioning")
     st.success("This project demonstrates applied machine learning, model evaluation, explainable AI, interactive product development and responsible AI communication in one end-to-end system.")
 
