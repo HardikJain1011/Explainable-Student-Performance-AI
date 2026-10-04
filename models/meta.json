@@ -1,0 +1,17 @@
+{
+  "best_model": "XGBoost",
+  "features": [
+    "attendance",
+    "prev_gpa",
+    "study_hours",
+    "assignments_completed",
+    "sleep_hours",
+    "extracurriculars",
+    "prev_exam_score"
+  ],
+  "class_names": [
+    "Low",
+    "Medium",
+    "High"
+  ]
+}
