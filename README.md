@@ -13,7 +13,7 @@
 ## 🔗 Links
 
 - 💻 **GitHub Repository:** `https://github.com/HardikJain1011/Explainable-Student-Performance-AI/`
-- 🚀 **Live Demo:** `ADD_STREAMLIT_APP_URL_AFTER_DEPLOYMENT`
+- 🚀 **Live Demo:** `https://explainable-student-performance-ai.streamlit.app/`
 
 > 🚧 **Project Status:** Portfolio-ready prototype. The application has been tested locally and is ready for GitHub/Streamlit deployment.
 
