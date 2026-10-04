@@ -10,10 +10,14 @@
 [![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/features/actions)
 [![License](https://img.shields.io/badge/License-MIT-black)](#-license)
 
+## 🚀 Live Demo
+
+[**Try the Live App →**](https://explainable-student-performance-ai.streamlit.app/)
+
 ## 🔗 Links
 
-- 💻 **GitHub Repository:** `https://github.com/HardikJain1011/Explainable-Student-Performance-AI/`
-- 🚀 **Live Demo:** `https://explainable-student-performance-ai.streamlit.app/`
+- 💻 (**GitHub Repository:**) (https://github.com/HardikJain1011/Explainable-Student-Performance-AI/)
+- 🚀 [**Live Demo:**] (https://explainable-student-performance-ai.streamlit.app/)
 
 > 🚧 **Project Status:** Portfolio-ready prototype. The application has been tested locally and is ready for GitHub/Streamlit deployment.
 
