@@ -1,78 +1,176 @@
 # 🎓 Explainable Student Performance AI
 
-> **An end-to-end Explainable AI application that predicts student performance, explains individual predictions with SHAP + LIME, and turns model explanations into actionable what-if scenarios.**
+> An end-to-end Explainable AI application that predicts student performance, explains individual predictions with **SHAP + LIME**, and turns model explanations into actionable **what-if scenarios** through an interactive Streamlit dashboard.
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/App-Streamlit-red)](https://streamlit.io/)
-[![XGBoost](https://img.shields.io/badge/Model-XGBoost-orange)](https://xgboost.readthedocs.io/)
-[![Explainability](https://img.shields.io/badge/XAI-SHAP%20%2B%20LIME-purple)](https://shap.readthedocs.io/)
+[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-Machine%20Learning-orange)](https://xgboost.readthedocs.io/)
+[![SHAP](https://img.shields.io/badge/XAI-SHAP-purple)](https://shap.readthedocs.io/)
+[![LIME](https://img.shields.io/badge/XAI-LIME-green)](https://github.com/marcotcr/lime)
+[![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/features/actions)
+[![License](https://img.shields.io/badge/License-MIT-black)](#-license)
 
-## 🚀 Why this project stands out
+## 🔗 Links
 
-This is not just a classification notebook. It combines **machine learning, model evaluation, explainable AI, counterfactual reasoning, interactive UI and responsible-AI communication** into one deployable application.
+- 💻 **GitHub Repository:** `YOUR_GITHUB_REPOSITORY_URL`
+- 🚀 **Live Demo:** `ADD_STREAMLIT_APP_URL_AFTER_DEPLOYMENT`
 
-A student can:
+> 🚧 **Project Status:** Portfolio-ready prototype. The application has been tested locally and is ready for GitHub/Streamlit deployment.
 
-1. Enter an academic/lifestyle profile.
-2. Get a Low / Medium / High performance prediction.
-3. See model probabilities instead of only a class label.
-4. Understand which features helped or hurt the prediction using SHAP.
-5. Cross-check the local explanation with LIME.
-6. Receive model-grounded improvement suggestions.
-7. Explore what-if combinations that could move the model toward the High class.
-8. Download a shareable PDF performance report.
+---
 
-> **Important:** the included dataset is synthetic. The application demonstrates the ML/XAI engineering workflow and should not be interpreted as a validated academic decision system.
+## 📸 Application Preview
+
+### Student Dashboard
+
+The student-facing workflow collects an academic/lifestyle profile and produces a performance prediction, probability breakdown, model explanations, improvement suggestions, and what-if scenarios.
+
+![Student Performance Dashboard](assets/dashboard.png)
+
+### Student Performance Report
+
+The application generates a personalized report containing the predicted performance, probability outlook, profile, influential features, and an improvement plan.
+
+![Student Performance Report](assets/student-report.png)
+
+### Model Performance
+
+The model insights section compares Logistic Regression, Random Forest, and XGBoost using multiple evaluation metrics.
+
+![Model Performance](assets/model-performance.png)
+
+> **Screenshot setup:** Add the three supplied screenshots to an `assets/` folder using the filenames shown above.
+
+---
+
+## 🚀 Why This Project Stands Out
+
+This is **not just a classification notebook**.
+
+It combines:
+
+- Machine learning model development
+- Model comparison and evaluation
+- Explainable AI
+- Local and global interpretability
+- SHAP + LIME explanations
+- Permutation feature importance
+- Counterfactual / what-if analysis
+- Actionable recommendation generation
+- Interactive Streamlit product design
+- PDF report generation
+- Responsible-AI communication
+- GitHub Actions CI
+
+The goal is to demonstrate the complete workflow from **data → model → explanation → actionable insight → user-facing application**.
 
 ---
 
 ## ✨ Features
 
-### Student dashboard
+### 🎓 Student Dashboard
 
-- Clean student-facing prediction workflow
-- Performance probability chart
+- Student profile input
+- Low / Medium / High performance prediction
+- Prediction probability visualization
 - Profile snapshot
-- Strongest positive and negative model contributors
+- Strongest positive model contributors
 - Priority improvement area
-- Downloadable PDF report
+- Personalized improvement suggestions
+- Counterfactual what-if simulations
+- Downloadable PDF performance report
 
-### Machine learning
+### 🤖 Machine Learning
 
-- Logistic Regression baseline
+The application compares:
+
+- Logistic Regression
 - Random Forest
 - XGBoost
+
+The training pipeline includes:
+
 - Stratified train/test split
 - 5-fold cross-validation
-- Accuracy, precision, recall, macro-F1 and ROC-AUC
-- Automatic best-model selection by macro-F1
+- Accuracy
+- Precision
+- Recall
+- Macro-F1
+- ROC-AUC
+- Automatic best-model selection using macro-F1
 
-### Explainable AI
+### 🔍 Explainable AI
 
-- Local **SHAP** feature attribution
-- Local **LIME** explanation
-- Global SHAP summary
-- SHAP vs permutation importance
+- Local SHAP feature attribution
+- Global SHAP analysis
+- Local LIME explanations
+- Permutation feature importance
 - Feature dependence plots
 - Human-readable explanation cards
 
-### Actionable XAI
+### 💡 Actionable XAI
 
 The project separates **explanation** from **recommendation**.
 
-SHAP answers:
+**SHAP answers:**
 
-> *Which inputs pushed the current prediction up or down?*
+> Which inputs pushed the current prediction up or down?
 
-The recommendation layer then looks only at reasonably actionable factors such as attendance, study time, assignment completion, sleep and extracurricular load.
+The recommendation layer then considers reasonably actionable factors such as attendance, study hours, assignment completion, sleep and extracurricular load.
 
-The what-if engine tests plausible combinations of changes and reports whether the trained model would change its predicted class.
+The what-if engine tests plausible combinations of changes and checks whether those changes alter the trained model's predicted class.
 
-This is explicitly presented as a **model simulation, not a causal claim**.
+These are explicitly presented as **model simulations, not causal claims**.
 
 ---
 
-## 🧠 Architecture
+## 🧠 How Explainability Works
+
+### SHAP
+
+SHAP estimates how individual features contribute to a model prediction relative to a baseline.
+
+For example:
+
+```text
+Higher attendance  → may push prediction upward
+Higher study time  → may push prediction upward
+Lower study time   → may push prediction downward
+```
+
+The application visualizes these contributions so that the prediction is not presented as a black-box class label.
+
+### LIME
+
+LIME provides a second local explanation by approximating model behaviour around an individual prediction.
+
+Using both SHAP and LIME provides a useful cross-check between two local explanation approaches.
+
+### Permutation Importance
+
+Permutation importance provides an additional global feature-importance perspective and helps compare feature reliance against SHAP-based global explanations.
+
+### Counterfactual / What-If Analysis
+
+The application explores plausible changes to actionable inputs and checks whether those changes alter the model's prediction.
+
+For example:
+
+```text
+What if attendance increased?
+What if study hours increased?
+What if assignment completion improved?
+```
+
+The result answers:
+
+> Would the trained model change its predicted class under these modified inputs?
+
+This is a **model-based simulation**, not a guarantee that making the suggested change will cause the same real-world outcome.
+
+---
+
+## 🏗️ Architecture
 
 ```text
                     ┌─────────────────────┐
@@ -82,10 +180,10 @@ This is explicitly presented as a **model simulation, not a causal claim**.
                                ▼
                     ┌─────────────────────┐
                     │  Trained ML Models  │
-                    │ LR / RF / XGBoost   │
+                    │  LR / RF / XGBoost  │
                     └──────────┬──────────┘
                                │
-                     Prediction + Probability
+                    Prediction + Probabilities
                                │
               ┌────────────────┴────────────────┐
               ▼                                 ▼
@@ -96,8 +194,9 @@ This is explicitly presented as a **model simulation, not a causal claim**.
               └────────────────┬────────────────┘
                                ▼
                     ┌─────────────────────┐
-                    │ Actionable XAI      │
-                    │ Suggestions + What-if│
+                    │ Actionable XAI Layer│
+                    │ Recommendations     │
+                    │ + Counterfactuals   │
                     └──────────┬──────────┘
                                ▼
              ┌──────────────────────────────────┐
@@ -108,74 +207,110 @@ This is explicitly presented as a **model simulation, not a causal claim**.
 
 ---
 
-## 📊 Current benchmark
+## 📊 Input Features
 
-The bundled trained artifacts currently select **XGBoost** by macro-F1.
+| Feature | Description |
+|---|---|
+| Attendance | Attendance percentage |
+| Previous GPA | Previous academic GPA |
+| Study Hours | Average study hours per day |
+| Assignments Completed | Percentage of assignments completed |
+| Sleep Hours | Average sleep duration per night |
+| Extracurriculars | Number of extracurricular activities |
+| Previous Exam Score | Previous examination score |
+
+### Target Classes
+
+The model predicts:
+
+- 🟢 **High**
+- 🟡 **Medium**
+- 🔴 **Low**
+
+---
+
+## 📈 Current Benchmark
+
+The current benchmark selects **XGBoost as the best-performing model based on macro-F1**.
 
 | Model | Accuracy | Macro F1 | ROC-AUC |
 |---|---:|---:|---:|
 | Logistic Regression | 0.778 | 0.784 | 0.920 |
-| Random Forest | 0.762 | 0.767 | 0.907 |
-| **XGBoost** | **0.782** | **0.787** | **0.919** |
+| Random Forest | 0.762 | 0.767 | 0.908 |
+| **XGBoost** | **0.790** | **0.795** | **0.921** |
 
-These numbers are benchmark results on the included synthetic dataset, not evidence of real-world academic prediction accuracy.
+The bundled training artifacts also contain additional evaluation metrics including precision, recall, and cross-validation results.
+
+> **Important:** These results are benchmark results on a held-out split of the included **synthetic dataset**. They demonstrate the ML/XAI engineering workflow and should **not** be interpreted as evidence of real-world academic prediction accuracy.
 
 ---
 
-## 🗂️ Project structure
+## 🗂️ Project Structure
 
 ```text
-xai-student-performance/
-├── app.py                    # Streamlit application
-├── requirements.txt          # Python dependencies
+Explainable-Student-Performance-AI/
+│
+├── app.py
 ├── README.md
+├── requirements.txt
 ├── .gitignore
+├── LICENSE
+│
+├── assets/
+│   ├── dashboard.png
+│   ├── student-report.png
+│   └── model-performance.png
 │
 ├── data/
-│   └── student_data.csv      # Synthetic dataset
+│   └── student_data.csv
 │
 ├── models/
-│   ├── all_models.joblib     # Trained models
-│   ├── metrics.csv           # Evaluation metrics
-│   ├── meta.json             # Selected model + metadata
+│   ├── all_models.joblib
+│   ├── metrics.csv
+│   ├── meta.json
 │   ├── X_train.csv
 │   ├── X_test.csv
 │   └── y_test.csv
 │
-└── src/
-    ├── data.py               # Data generation + feature definitions
-    ├── train.py              # Training + evaluation pipeline
-    ├── explain.py            # SHAP + LIME helpers
-    ├── recommendations.py    # Suggestions + counterfactual search
-    └── report.py             # PDF report generator
+├── src/
+│   ├── __init__.py
+│   ├── data.py
+│   ├── train.py
+│   ├── explain.py
+│   ├── recommendations.py
+│   └── report.py
+│
+├── reports/
+│
+└── .github/
+    └── workflows/
+        └── ci.yml
 ```
 
 ---
 
-## ▶️ Run locally
+## ⚙️ Run Locally
 
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
-cd xai-student-performance
+git clone YOUR_GITHUB_REPOSITORY_URL
+cd Explainable-Student-Performance-AI
 ```
 
 ### 2. Create a virtual environment
 
-```bash
+**Windows:**
+
+```powershell
 python -m venv .venv
-```
-
-Windows:
-
-```bash
 .venv\Scripts\activate
 ```
 
-macOS/Linux:
+**macOS / Linux:**
 
 ```bash
+python -m venv .venv
 source .venv/bin/activate
 ```
 
@@ -185,86 +320,177 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Launch the app
+### 4. Launch the application
 
 ```bash
 streamlit run app.py
 ```
 
-The app will open in your browser.
+The application will open in your browser.
 
-### Retrain the models
+---
+
+## 🔄 Retrain the Models
 
 ```bash
 python -m src.train
 ```
 
-The training script regenerates the synthetic data and writes the model artifacts to `models/`.
+The training pipeline regenerates the synthetic data and writes the model artifacts to `models/`.
+
+> **Note:** Retraining may produce slightly different results depending on the implementation and random seeds. The benchmark table describes the currently bundled trained artifacts.
 
 ---
 
-## ☁️ Deploy on Streamlit Community Cloud
+## ☁️ Deploy with Streamlit Community Cloud
 
 1. Push the repository to GitHub.
 2. Open Streamlit Community Cloud.
-3. Select your GitHub repository.
-4. Set the main file to `app.py`.
-5. Deploy.
+3. Connect your GitHub account.
+4. Select this repository.
+5. Set `app.py` as the application entry point.
+6. Deploy.
 
-The repository includes the trained artifacts, so the app can start without retraining. If you intentionally remove the artifacts, `app.py` can regenerate them on first launch.
+The repository includes trained model artifacts so the application can start without retraining.
 
----
-
-## 🧪 Responsible AI considerations
-
-This project intentionally demonstrates good communication around model explanations:
-
-- **SHAP/LIME are explanations of model behaviour**, not proof of causal relationships.
-- Counterfactual suggestions are **what-if simulations**, not guarantees.
-- Previous GPA and exam score are treated as explanatory inputs rather than short-term interventions.
-- The dataset is synthetic and should not be presented as evidence of real-world student prediction capability.
-- A real deployment would require representative consented data, external validation, calibration, fairness testing, privacy controls and model monitoring.
+After deployment, add the live URL to the **Links** section at the top.
 
 ---
 
-## 🔧 Future improvements
+## 🧪 Continuous Integration
 
-- Replace synthetic data with a real, consented educational dataset.
-- Add probability calibration and confidence intervals.
-- Add fairness evaluation across relevant groups where legally and ethically appropriate.
-- Add model/data drift monitoring.
-- Add authentication and privacy-preserving storage for a real deployment.
-- Add experiment tracking with MLflow or Weights & Biases.
-- Add automated tests and CI/CD with GitHub Actions.
-- Add a production API layer using FastAPI.
+The repository includes a GitHub Actions workflow for continuous integration.
+
+The workflow helps verify that the project remains importable/compilable when changes are pushed.
+
+Future testing improvements can include:
+
+- Unit tests for preprocessing
+- Tests for model prediction functions
+- Tests for SHAP/LIME helpers
+- Counterfactual recommendation tests
+- Streamlit smoke tests
+- End-to-end application tests
 
 ---
 
-## 💼 Resume-ready description
+## 🤖 Responsible AI
 
-**Explainable Student Performance AI | Python, XGBoost, SHAP, LIME, Streamlit**
+This project intentionally communicates the limitations of Explainable AI and predictive modelling.
+
+### Synthetic Data
+
+The included dataset is synthetic and is intended to demonstrate the engineering workflow.
+
+It should **not** be used as evidence of real-world student performance prediction capability.
+
+### Explainability ≠ Causality
+
+SHAP and LIME explain model behaviour. They do not prove that a feature causes the predicted outcome.
+
+### Counterfactuals ≠ Guarantees
+
+A what-if scenario shows how the trained model responds to modified inputs. It does not guarantee that the suggested change will produce the same result in reality.
+
+### Real-World Deployment
+
+A real deployment would require substantially more work, including:
+
+- Representative and consented data
+- External validation
+- Probability calibration
+- Fairness evaluation
+- Privacy and security controls
+- Model monitoring
+- Data/model drift detection
+- Human oversight
+- Appropriate governance
+
+This application is therefore presented as an **educational XAI engineering project**, not as a production academic decision-making system.
+
+---
+
+## 🚀 Future Improvements
+
+- Replace synthetic data with a real, consented educational dataset
+- Add probability calibration and confidence intervals
+- Expand fairness evaluation across appropriate groups
+- Add data and model drift monitoring
+- Add authentication and privacy-preserving storage
+- Add experiment tracking with MLflow or Weights & Biases
+- Expand automated test coverage
+- Add a production API using FastAPI
+- Add Docker-based deployment
+- Add model versioning and experiment reproducibility
+- Add richer counterfactual optimization
+- Add monitoring dashboards for deployed models
+
+---
+
+## 💼 Resume-Ready Description
+
+### Explainable Student Performance AI
+**Python · XGBoost · Scikit-learn · SHAP · LIME · Streamlit · Plotly**
 
 - Built an end-to-end multiclass ML application comparing Logistic Regression, Random Forest and XGBoost, achieving **0.787 macro-F1** and **0.919 ROC-AUC** on a held-out synthetic benchmark.
-- Implemented **SHAP and LIME** for local/global model interpretability and cross-validated feature importance against permutation importance.
+- Implemented **SHAP and LIME** for local/global model interpretability and cross-checked feature importance using permutation importance.
 - Developed an actionable XAI layer that converts model attributions into personalized improvement suggestions and **counterfactual what-if simulations**.
-- Deployed the workflow as an interactive **Streamlit dashboard** with probability visualizations and downloadable PDF performance reports.
+- Built an interactive **Streamlit dashboard** with probability visualizations, student-facing explanations and downloadable PDF performance reports.
 
-### Short version
-
-> Built an explainable student-performance prediction system using XGBoost, SHAP and LIME, with an interactive Streamlit dashboard, actionable recommendations and counterfactual what-if analysis.
+> Replace “Built” with “Deployed” only after the application is actually live.
 
 ---
 
-## 🧑‍💻 Skills demonstrated
+## 🧑‍💻 Skills Demonstrated
 
-**Machine Learning:** classification, model comparison, cross-validation, evaluation metrics, XGBoost  
-**Explainable AI:** SHAP, LIME, permutation importance, counterfactual analysis  
-**Python:** pandas, NumPy, scikit-learn, joblib  
-**Product/Deployment:** Streamlit, Plotly, PDF generation, Git/GitHub  
-**Responsible AI:** limitations, non-causal explanations, synthetic-data disclosure
+**Machine Learning:** classification, model comparison, cross-validation, XGBoost, evaluation metrics, feature importance
+
+**Explainable AI:** SHAP, LIME, permutation importance, local/global explanations, counterfactual analysis
+
+**Python & Data:** Python, Pandas, NumPy, Scikit-learn, Joblib
+
+**Product & Deployment:** Streamlit, Plotly, PDF generation, Git, GitHub, GitHub Actions
+
+**Responsible AI:** explainability limitations, non-causal interpretation, synthetic-data disclosure, fairness, privacy, model monitoring
+
+---
+
+## 📌 Project Workflow
+
+```text
+Data
+  ↓
+Model Training
+  ↓
+Model Comparison
+  ↓
+Best Model Selection
+  ↓
+Prediction
+  ↓
+SHAP + LIME
+  ↓
+Actionable Recommendations
+  ↓
+Counterfactual What-If Analysis
+  ↓
+Interactive Student Dashboard
+  ↓
+Downloadable Report
+```
+
+The emphasis is not only on **making predictions**, but also on making those predictions **interpretable, actionable, and responsibly communicated**.
 
 ---
 
 ## 📄 License
 
-Add your preferred open-source license before publishing the repository publicly.
+This project is licensed under the **MIT License**.
+
+See the `LICENSE` file for details.
+
+---
+
+## ⭐ If You Find This Project Useful
+
+If this project helped you understand Explainable AI, machine learning interpretability, or Streamlit-based ML applications, consider giving the repository a ⭐ on GitHub.
