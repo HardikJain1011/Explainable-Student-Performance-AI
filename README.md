@@ -39,7 +39,6 @@ The model insights section compares Logistic Regression, Random Forest, and XGBo
 
 ![Model Performance](assets/model-performance.png)
 
-> **Screenshot setup:** Add the three supplied screenshots to an `assets/` folder using the filenames shown above.
 
 ---
 
