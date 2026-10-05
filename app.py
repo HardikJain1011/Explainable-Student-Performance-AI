@@ -101,7 +101,31 @@ st.markdown(
     .stDownloadButton > button { border-radius:12px; font-weight:750; }
     .stTabs [data-baseweb="tab-list"] { gap:.45rem; }
     .stTabs [data-baseweb="tab"] { border-radius:10px; padding:.6rem .9rem; }
-
+    /* Expander: keep header light and its title readable in all states */
+    [data-testid="stExpander"] details {
+        background:#ffffff !important;
+        border:1px solid #e2e8f0 !important;
+        border-radius:14px !important;
+    }
+    [data-testid="stExpander"] details summary,
+    [data-testid="stExpander"] details[open] summary,
+    [data-testid="stExpander"] details summary:hover,
+    [data-testid="stExpander"] details summary:focus,
+    [data-testid="stExpander"] details summary:active {
+        background:#f1f5f9 !important;
+        color:#0f172a !important;
+    }
+    [data-testid="stExpander"] details summary p,
+    [data-testid="stExpander"] details summary span,
+    [data-testid="stExpander"] details summary [data-testid="stMarkdownContainer"] p {
+        color:#0f172a !important;
+        font-weight:750 !important;
+        opacity:1 !important;
+    }
+    [data-testid="stExpander"] details summary svg {
+        color:#0f172a !important;
+        fill:#0f172a !important;
+    }
     /* Hero is intentionally dark: keep its text bright even though the app
        uses dark text globally on light backgrounds. */
     .hero h1,
